@@ -12,6 +12,32 @@ func Test_reverse(t *testing.T) {
 	fmt.Println(reverse(-117))
 }
 
+func Test_isPalindrome(t *testing.T) {
+	fmt.Println(isPalindrome(101))
+	fmt.Println(isPalindrome(-101))
+	fmt.Println(isPalindrome(1))
+	fmt.Println(isPalindrome(11))
+}
+
+// leetcode 9
+func isPalindrome(x int) bool {
+	if x < 10 && x >= 0 {
+		return true
+	}
+
+	if x < 0 || x%10 == 0 {
+		return false
+	}
+
+	tmp := 0
+	xx := x
+	for x > 0 {
+		tmp = 10*tmp + x%10
+		x = x / 10
+	}
+	return tmp == xx
+}
+
 // leetcode7
 func reverse(i int) int {
 	min := math.MinInt32
